@@ -21,8 +21,10 @@ hash1 = pbkdf2_sha512.encrypt("password", rounds=250000, salt_size=1024)
 hash2 = pbkdf2_sha512.encrypt("password")
 
 print hash1
+print '--------------------------------'
 print hash2
 
 # returns true if hash matches password
-print pbkdf2_sha512.verify("password", hash1)
-print pbkdf2_sha512.verify("password", hash2)
+print '--------------------------------'
+print 'hash1 Password matches: ', pbkdf2_sha512.verify("wrong password", hash1)
+print 'hash2 Password matches: ', pbkdf2_sha512.verify("password", hash2)
