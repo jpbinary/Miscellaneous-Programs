@@ -2,8 +2,6 @@ from passlib.hash import pbkdf2_sha512
 # Grubs pbkdf2-hmac-sha512
 
 '''
-The salt is included in the returned hash.
-
     default_salt_size = 64
     min_salt_size = 0
     max_salt_size = 1024
@@ -13,10 +11,13 @@ The salt is included in the returned hash.
     max_rounds = 0xffffffff # setting at 32-bit limit for now
     rounds_cost = "linear"
 '''
-# strong hash
+
+# Note: The salt is included in the returned hash.
+
+# strong hash example
 hash1 = pbkdf2_sha512.encrypt("password", rounds=250000, salt_size=1024)
 
-# default hash
+# default hash example
 hash2 = pbkdf2_sha512.encrypt("password")
 
 print hash1
